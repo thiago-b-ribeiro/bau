@@ -2,9 +2,6 @@ package model;
 
 public class Temperatura {
 
-	private String tipoTemperatura;
-	private double valorTemperatura;
-	
 	public ClasseRetorno classeRetorno = new ClasseRetorno(0, null);
 	
 	public ClasseRetorno converteTemperatura(String tipoTemperatura, double valorTemperatura) {
