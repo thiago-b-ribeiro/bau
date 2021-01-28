@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html>
@@ -16,11 +17,14 @@
 		
 			<h1>Resultado</h1>
 			<hr>
-			${param.n1} <br>
-			${param.n2} <br>
-			${resultado}
 			
+			<p> As operações aritiméticas básicas dos números ${param.n1} e ${param.n2} são:<br>
 			
+  			<c:forEach var="i" items="${resultado}" begin="0" end="${fn:length(resultado)}">
+				<ul>
+					<li><c:out value="${i}" />
+				</ul>
+			</c:forEach>			
 		
 		</div>
 	

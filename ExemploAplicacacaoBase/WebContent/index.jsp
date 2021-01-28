@@ -25,17 +25,6 @@
 				
 				<label for="n2">Segundo número</label>
 				<input type="number" name="n2">
-				
-				<br>
-				<br>
-				
-				<label for="operacao">Selecione a operação</label>
-				<select name="operacao" id="operacao">
-					<option value=1>Soma</option>
-					<option value=2>Subtração</option>
-					<option value=3>Multiplicação</option>
-					<option value=4>Divisão</option>
-				</select>
 
 				<input type="submit" value="Calcular">
 			

@@ -2,7 +2,6 @@ package controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,15 +22,14 @@ public class servlet01 extends HttpServlet {
 		
 		int n1 = Integer.parseInt(request.getParameter("n1"));
 		int n2 = Integer.parseInt(request.getParameter("n2"));
-		int operador = Integer.parseInt(request.getParameter("operacao"));
+		int[] resultado;
 
 		OperacoesAritimeticas equacao = new OperacoesAritimeticas();
 		
-		response.setContentType("text/html");
+		resultado = equacao.Calcular(n1, n2);
 		
-		request.setAttribute("resultado", equacao.Calcular(n1, n2, operador));
-		RequestDispatcher dispatcher = request.getRequestDispatcher("jsp/resultado.jsp");
-		dispatcher.forward(request, response);
+		request.setAttribute("resultado", resultado);
+		request.getRequestDispatcher("jsp/resultado.jsp").forward(request, response);
 		
 		
 	}
