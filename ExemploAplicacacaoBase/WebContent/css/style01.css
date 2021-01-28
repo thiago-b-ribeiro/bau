@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+#divPrincipal {
+	margin: auto;
+	width: 300px;
+	border: 5px solid green;
+	padding: 10px 10px 10px 10px;
+}
+
+#divSecundaria {
+	margin: auto;
+	width: 300px;
+	border: 5px solid red;
+	padding: 10px 10px 10px 10px;
+}
