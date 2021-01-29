@@ -18,13 +18,7 @@
 			<h1>Resultado</h1>
 			<hr>
 			
-			<p> As operações aritiméticas básicas dos números ${param.n1} e ${param.n2} são:<br>
-			
-  			<c:forEach var="i" items="${resultado}" begin="0" end="${fn:length(resultado)}">
-				<ul>
-					<li><c:out value="${i}" />
-				</ul>
-			</c:forEach>			
+			<p> O resultado da ${resultado.tipoOperacao} de ${resultado.n1} com ${resultado.n2} é ${resultado.resultado}.<br>			
 		
 		</div>
 	
