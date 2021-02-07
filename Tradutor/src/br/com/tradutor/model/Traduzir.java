@@ -47,7 +47,7 @@ public class Traduzir {
 			}
 		}
 		
-		return "Não foi possível realizar a tradução.";
+		return palavraPortugues;
 	}
 	
 	
@@ -62,7 +62,7 @@ public class Traduzir {
 			}
 		}
 		
-		return "Palavra não encontrada no dicionário.";
+		return palavraPortugues;
 	}
 	
 }
