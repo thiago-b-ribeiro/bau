@@ -20,6 +20,8 @@ public class Dicionario {
 		BufferedReader br = null;
 		String armazenaLinha = "";
 		String leituraLinha = "";
+		String[] tmpLinha = null;
+		String[] tmpColuna = null;
 		List<String[]> lista = new ArrayList<String[]>();
 		
 		try {
@@ -29,10 +31,10 @@ public class Dicionario {
 				armazenaLinha = armazenaLinha + "\n" + leituraLinha;
 			}
 
-			String[] tmpLinha = armazenaLinha.split("\n");
+			tmpLinha = armazenaLinha.split("\n");
 
 			for (int i = 0; i < tmpLinha.length; i++) { 
-				String[] tmpColuna = tmpLinha[i].split(";");
+				tmpColuna = tmpLinha[i].split(";");
 				lista.add(tmpColuna);
 			}
 			 
