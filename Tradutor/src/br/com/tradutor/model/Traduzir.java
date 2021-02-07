@@ -18,13 +18,11 @@ public class Traduzir {
 		String leituraLinha = "";
 		String[] linha = null;
 		String[] coluna = null;
-		String resultado = "";
-		
 		List<String[]> dicionario = new ArrayList<String[]>();
 		Traduzir traduzir = new Traduzir();
 		
 		try {
-			br = new BufferedReader(new FileReader("C:\\workspace-pessoal\\Tradutor\\WebContent\\arq\\Dicionario.csv"));
+			br = new BufferedReader(new FileReader("C:\\Users\\thiag\\git\\bau\\Tradutor\\WebContent\\arq\\Dicionario.csv"));
 			
 			while ((leituraLinha = br.readLine()) != null) {
 				armazenaLinha = armazenaLinha + "\n" + leituraLinha;
