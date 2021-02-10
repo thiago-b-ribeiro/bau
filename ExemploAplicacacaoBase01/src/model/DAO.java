@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DAO {
 	public DAO() {
@@ -17,13 +16,13 @@ public class DAO {
 	private String url = "jdbc:mysql://127.0.0.1:3306/areadetestes04?useTimezone=true&serverTimezone=UTC";
 	private String user = "root";
 	private String password = "Recomeco137!";
-	
+
 	private Connection conectar() {
 		Connection con = null;
-		
+
 		try {
 			Class.forName(driver);
-			con=DriverManager.getConnection(url, user, password);
+			con = DriverManager.getConnection(url, user, password);
 			return con;
 		} catch (Exception e) {
 			System.out.println(e);
@@ -33,53 +32,53 @@ public class DAO {
 
 	public void inserirEquacao(OperacoesAritimeticas resultado) {
 		String sql = "INSERT INTO operacoesAritimeticas(tipoOperacao, resultado, n1, n2) VALUES (?, ?, ?, ?);";
-		
+
 		try {
 			Connection con = conectar();
-			
+
 			PreparedStatement pst = con.prepareStatement(sql);
 			pst.setString(1, resultado.getTipoOperacao());
 			pst.setInt(2, resultado.getResultado());
 			pst.setInt(3, resultado.getN1());
 			pst.setInt(4, resultado.getN2());
-			
+
 			pst.executeUpdate();
-			
+
 			pst.close();
 			con.close();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
-	
-	public OperacoesAritimeticas[] resgatarEquacao() {
-		String sql ="SELECT * FROM areadetestes04.operacoesaritimeticas;";
-		ArrayList<OperacoesAritimeticas> lista= new ArrayList<OperacoesAritimeticas>();
-	
+
+	public ArrayList<OperacoesAritimeticas> resgatarEquacao() {
+		String sql = "SELECT * FROM areadetestes04.operacoesaritimeticas;";
+		ArrayList<OperacoesAritimeticas> lista = new ArrayList<>();
+
 		try {
 			Connection con = conectar();
-			
+
 			PreparedStatement pst = con.prepareStatement(sql);
-			
+
 			ResultSet rs = pst.executeQuery(sql);
-			
-			while (rs.next()){
-				OperacoesAritimeticas equacoes = new OperacoesAritimeticas(
-						rs.getString("tipoOperacao"),
-						rs.getInt("resultado"),
-						rs.getInt("n1"),
-						rs.getInt("n2")
-						);
-				lista.add(equacoes);
+
+			while (rs.next()) {
+				String tipoOperacao = rs.getString(1);
+				int resultado = rs.getInt(2);
+				int n1 = rs.getInt(3);
+				int n2 = rs.getInt(4);
+
+				lista.add(new OperacoesAritimeticas(tipoOperacao, resultado, n1, n2));
 			}
-			
+
 			pst.close();
 			con.close();
+			return lista;
+			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(e);
+			return null;
 		}
-		
-		return (OperacoesAritimeticas[]) lista.toArray(new OperacoesAritimeticas[0]);
 	}
 
 }

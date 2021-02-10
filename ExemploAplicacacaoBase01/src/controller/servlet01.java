@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -58,10 +60,7 @@ public class servlet01 extends HttpServlet {
 	}
 	
 	protected void consultar (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		OperacoesAritimeticas[] arrayEquacoes = new DAO().resgatarEquacao();
-		request.setAttribute("arrayEquacoes", arrayEquacoes);
-		
-		request.getRequestDispatcher("jsp/resultado.jsp").forward(request, response);
+		ArrayList<OperacoesAritimeticas> lista = dao.resgatarEquacao();
 	}
 
 }

@@ -12,6 +12,7 @@ public class OperacoesAritimeticas {
 	}
 	
 	public OperacoesAritimeticas(String tipoOperacao, int resultado, int n1, int n2) {
+		super();
 		this.tipoOperacao = tipoOperacao;
 		this.resultado = resultado;
 		this.n1 = n1;
