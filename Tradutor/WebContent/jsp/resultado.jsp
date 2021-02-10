@@ -16,7 +16,7 @@
 			<h1>Palavra Traduzida</h1>
 			<hr>
 			
-			${resultado}
+			<p id="resultado">${resultado}
 			
 		</div>
 	
