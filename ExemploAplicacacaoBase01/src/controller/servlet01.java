@@ -23,6 +23,9 @@ public class servlet01 extends HttpServlet {
         super();
     }
     
+    
+    
+    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action = request.getServletPath();
 		if (action.equals("/calcular")) {
@@ -35,6 +38,9 @@ public class servlet01 extends HttpServlet {
 
 	}
 
+	
+	
+	
 	protected void calcular(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int n1 = Integer.parseInt(request.getParameter("n1"));
 		int n2 = Integer.parseInt(request.getParameter("n2"));
@@ -44,9 +50,11 @@ public class servlet01 extends HttpServlet {
 		
 		request.setAttribute("resultado", resultado);
 
-		
 		request.getRequestDispatcher("jsp/resultado.jsp").forward(request, response);		
 	}
+	
+	
+	
 	
 	protected void inserir (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(resultado != null) {
@@ -58,6 +66,9 @@ public class servlet01 extends HttpServlet {
 		
 		request.getRequestDispatcher("jsp/resultado.jsp").forward(request, response);
 	}
+	
+	
+	
 	
 	protected void consultar (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<OperacoesAritimeticas> lista = dao.resgatarEquacao();
